@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Categorias</ion-title>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let categoria of categorias">
+    <ion-item button >
+      <ion-avatar slot="start">
+        <img [src]="[categoria.imagenCategoria]" />
+      </ion-avatar>
+      <ion-label>{{categoria.nombreCategoria}}.... {{categoria.id}},,,{{idItem}} </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+</ion-content>
