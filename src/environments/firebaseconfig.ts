@@ -1,6 +1,4 @@
-export const environment = {
-  production: true,
-  firebaseConfig: {
+export const firebaseConfig = {
     apiKey: "AIzaSyCwsFDdN2914nYD_9IiaEb35i_gGvTNa3U",
     authDomain: "proyectoprueba-b1664.firebaseapp.com",
     databaseURL: "https://proyectoprueba-b1664-default-rtdb.firebaseio.com",
@@ -9,5 +7,4 @@ export const environment = {
     messagingSenderId: "114176212234",
     appId: "1:114176212234:web:f51d8049474581f13acef3",
     measurementId: "G-5KZNZCMVRQ"
-  }
-};
+  };
