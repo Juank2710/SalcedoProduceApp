@@ -15,7 +15,6 @@ export class AppComponent {
   
   recuperarItems(){
     this.baseDatosService.getItems().subscribe((item)=>{
-      console.log('Todoss', item);
       this.items=item;
     })
   }

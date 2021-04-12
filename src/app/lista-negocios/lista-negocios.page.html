@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listaNegocios</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{categorias.nombreCategoria}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list *ngFor="let lista of listaNegocios">
+    <ion-item button [routerLink]="[lista.id]">
+      <ion-avatar slot="start">
+        <img [src]="[lista.imagenPortada]" />
+      </ion-avatar>
+      <ion-label>{{lista.nombreNegocio}}</ion-label>
+    </ion-item>
+    
+  </ion-list>
 
 </ion-content>

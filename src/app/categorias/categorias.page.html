@@ -10,11 +10,11 @@
 
 <ion-content>
   <ion-list *ngFor="let categoria of categorias">
-    <ion-item button >
+    <ion-item button [routerLink]="[categoria.id]">
       <ion-avatar slot="start">
         <img [src]="[categoria.imagenCategoria]" />
       </ion-avatar>
-      <ion-label>{{categoria.nombreCategoria}}.... {{categoria.id}},,,{{idItem}} </ion-label>
+      <ion-label>{{categoria.nombreCategoria}} </ion-label>
     </ion-item>
     
   </ion-list>

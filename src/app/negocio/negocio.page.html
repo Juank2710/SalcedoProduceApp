@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >{{ negocios.nombreNegocio }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div  >
+      <ion-slides  pager="true"  [options]="slideOpts" >
+      
+        <ion-slide *ngFor="let getSlider of slider">
+          <ion-img [src]="[getSlider.imagenSlider]"></ion-img>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+</ion-content>

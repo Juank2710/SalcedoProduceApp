@@ -21,6 +21,10 @@ const routes: Routes = [
       {
         path:':itemId/:idCatalogo',
         loadChildren: () => import('./lista-negocios/lista-negocios.module').then( m => m.ListaNegociosPageModule)
+      },
+      {
+        path:':itemId/:idCatalogo/:idNegocio',
+        loadChildren: () => import('./negocio/negocio.module').then( m => m.NegocioPageModule)
       }
     ],
     

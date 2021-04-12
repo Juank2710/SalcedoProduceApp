@@ -11,7 +11,7 @@ export class CategoriasPage implements OnInit {
   categorias:any;
   idItem;
   constructor( private route:ActivatedRoute,private baseDatosService:BasedatosService) { 
-    this.idItem=this.route.snapshot.paramMap.get('itemId')
+    this.idItem=this.route.snapshot.paramMap.get('itemId');
     this.getCaterogias(this.idItem);
   }
 

@@ -7,13 +7,13 @@
           <ion-note>hi@ionicframework.com</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let getItems of items">
-            <ion-item routerDirection="root" [routerLink]="['folder/',getItems.id]"  lines="none" detail="false" routerLinkActive="selected">
+            <ion-item button [routerLink]="['folder/',getItems.id]"  >
               <ion-icon slot="start" [ios]="getItems.icono" [md]="getItems.icono"></ion-icon>
-              <ion-label>{{ getItems.nombreItem }},,,{{getItems.id}}</ion-label>
+              <ion-label>{{ getItems.nombreItem }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-        
+        <!--<ion-item routerDirection="root" [routerLink]="['folder/',getItems.id]"  lines="none" detail="false" routerLinkActive="selected">-->
         
       </ion-content>
     </ion-menu>
