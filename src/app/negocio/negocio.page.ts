@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BasedatosService } from '../services/basedatos.service';
 @Component({
   selector: 'app-negocio',
@@ -76,6 +76,7 @@ export class NegocioPage implements OnInit {
     }
   }
 
+  catalogo:any;
   slider:any;
   negocios:any={
     descripcion: "",
@@ -90,17 +91,23 @@ export class NegocioPage implements OnInit {
     ubicacion: "",
     urlUbicacion: ""
   };
-  
+  option={
+    slidesPerView:5,
+    //loop:true, infinito
+    spaceBewteen:10
+    
+  }
   idItem;
   idCategoria;
   idNegocio;
-  constructor(private route:ActivatedRoute,private baseDatosService:BasedatosService) { 
+  constructor(private route:ActivatedRoute,private baseDatosService:BasedatosService,private router:Router) { 
     this.idItem=this.route.snapshot.paramMap.get('itemId');
     this.idCategoria=this.route.snapshot.paramMap.get('idCatalogo');
     this.idNegocio=this.route.snapshot.paramMap.get('idNegocio');
 
     this.getNegocio(this.idItem,this.idCategoria,this.idNegocio);
-    this.getSlider(this.idItem,this.idCategoria,this.idNegocio)
+    this.getSlider(this.idItem,this.idCategoria,this.idNegocio);
+    this.getCatlogo(this.idItem,this.idCategoria,this.idNegocio)
     
   }
 
@@ -117,5 +124,13 @@ export class NegocioPage implements OnInit {
     this.baseDatosService.getSlider(idItem,idCategoria,idNegocio).subscribe((getSlider)=>{
       this.slider=getSlider;
     })
+  }
+  getCatlogo(idItem,idCategoria,idNegocio){
+    this.baseDatosService.getCatalogo(idItem,idCategoria,idNegocio).subscribe((getCatalogo)=>{
+      this.catalogo=getCatalogo;
+    })
+  }
+  onClick(){
+    this.router.navigate(['/catalogo',this.idItem,this.idCategoria,this.idNegocio]);
   }
 }

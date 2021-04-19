@@ -28,7 +28,18 @@ const routes: Routes = [
       }
     ],
     
+  },
+  {
+    path: 'catalogo',
+    children:[
+      {
+        path:':itemId/:idCatalogo/:idNegocio',
+        loadChildren: () => import('./catalogo/catalogo.module').then( m => m.CatalogoPageModule)
+      }
+    ]
+    
   }
+
  
 
 ];

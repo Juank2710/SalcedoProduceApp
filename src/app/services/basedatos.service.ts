@@ -82,6 +82,7 @@ export class BasedatosService {
     return this.listaNegocios
 
   }
+  
   getNegocio(idItem:string,idCategoria:string,idNegocio:string){
     
     this.documentCollection = this.db.collection('items').doc(idItem).collection('categorias').doc(idCategoria).collection('listaNegocios').doc(idNegocio);

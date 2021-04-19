@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import {  BasedatosService} from "./services/basedatos.service";
 @Component({
   selector: 'app-root',
@@ -7,8 +8,17 @@ import {  BasedatosService} from "./services/basedatos.service";
 })
 export class AppComponent {
   items:any;
- 
-  constructor( private baseDatosService:BasedatosService) {
+  public subscribe:any;
+  constructor( private baseDatosService:BasedatosService,public platform:Platform) {
+    this.subscribe=this.platform.backButton.subscribeWithPriority(666666,()=>{
+      if(this.constructor.name=="HomePage")
+      {
+        if(window.confirm("¿Desea salir?"))
+        {platform
+          navigator["app"].exitApp();
+        }
+      }
+    });
 
     this.recuperarItems();
   }

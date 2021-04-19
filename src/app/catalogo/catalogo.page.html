@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>catalogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list  *ngFor="let productos of catalogo ">
+    <ion-item>
+      <ion-thumbnail slot="start" >
+        <ion-img [src]="[productos.imagenProducto]"></ion-img>
+      </ion-thumbnail>
+      <div>
+        <strong>{{productos.nombreProducto}}</strong>
+        <br>
+        <span>{{productos.descripcion}} </span>
+        <br>
+        <span>$ {{productos.valor}}</span>
+      </div>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
