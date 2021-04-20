@@ -12,13 +12,18 @@ import { firebaseConfig } from '../environments/firebaseConfig';
 import { AngularFireModule } from '@angular/fire';
 
 import {  AngularFirestoreModule} from "@angular/fire/firestore";
+import { ComponentsModule } from './components/components.module';
 
+//components
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,
+    ComponentsModule
+  
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

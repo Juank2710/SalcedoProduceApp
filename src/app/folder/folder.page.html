@@ -1,32 +1,96 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Salcedo Produce</ion-title>
-    <ion-buttons slot="end">
-      <ion-button >
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-button>
-      <ion-button >
-        <ion-icon name="logo-youtube"></ion-icon>
-      </ion-button>
-      <ion-button >
-        <ion-icon name="mail-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">mundp</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ 
 
-  <div id="container">
-    <strong class="capitalize">mundp</strong>
-    <p>mundp <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+  <ion-card class="content_card">
+    <ion-card-header>
+      <ion-card-title>Catalogo</ion-card-title>
+    </ion-card-header>
+      <ion-card-content>
+        <ion-slides  [options]="option" >    
+                
+          <ion-slide *ngFor="let categoria of categorias" [routerLink]="[idAleatorio]">
+            <ion-card >
+              
+              <ion-img [src]="[categoria.imagenCategoria]"></ion-img>
+            </ion-card>
+          </ion-slide>
+          
+        </ion-slides>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card class="content_card">
+    <ion-card-header>
+      <ion-card-title>Arte en Tejido</ion-card-title>
+    </ion-card-header>
+      <ion-card-content>
+        
+        <ion-slides  [options]="option" >          
+          <ion-slide *ngFor="let lista of listaTejido"  [routerLink]="['1','1']">
+            <ion-card >
+              
+              <ion-img [src]="[lista.imagenPortada]"></ion-img>
+            </ion-card>
+          </ion-slide>
+          
+        </ion-slides>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card class="content_card">
+    <ion-card-header>
+      <ion-card-title>Diseño Personalizado</ion-card-title>
+    </ion-card-header>
+      <ion-card-content>
+        
+        <ion-slides  [options]="option" >          
+          <ion-slide *ngFor="let lista of listaMadera"  [routerLink]="['1','2']">
+            <ion-card >
+              
+              <ion-img [src]="[lista.imagenPortada]"></ion-img>
+            </ion-card>
+          </ion-slide>
+          
+        </ion-slides>
+      </ion-card-content>
+  </ion-card>
+    
+  <ion-card class="content_card">
+    <ion-card-header>
+      <ion-card-title>Sabores para tu Paladar</ion-card-title>
+    </ion-card-header>
+      <ion-card-content>
+        
+        <ion-slides  [options]="option" >          
+          <ion-slide *ngFor="let lista of listaGastronomia"  [routerLink]="['1','3']">
+            <ion-card >
+              
+              <ion-img [src]="[lista.imagenPortada]"></ion-img>
+            </ion-card>
+          </ion-slide>
+          
+        </ion-slides>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card class="content_card">
+    <ion-card-header>
+      <ion-card-title>Conoce Salcedo</ion-card-title>
+    </ion-card-header>
+      <ion-card-content>
+        
+        <ion-slides  [options]="option" >          
+          <ion-slide *ngFor="let lista of listaTurismo"  [routerLink]="['3','1']">
+            <ion-card >
+              
+              <ion-img [src]="[lista.imagenPortada]"></ion-img>
+            </ion-card>
+          </ion-slide>
+          
+        </ion-slides>
+      </ion-card-content>
+  </ion-card>
 </ion-content>

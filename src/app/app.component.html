@@ -3,19 +3,20 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Salcedo Produce</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list-header>Salcedo Produce</ion-list-header>    
 
-          <ion-item button routerLink="folder">
-            <ion-icon slot="start" name="Home"></ion-icon>
-            <ion-label>Home</ion-label>
-          </ion-item>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let getItems of items">
-            <ion-item button [routerLink]="['folder/',getItems.id]"  >
-              <ion-icon slot="start" [ios]="getItems.icono" [md]="getItems.icono"></ion-icon>
-              <ion-label>{{ getItems.nombreItem }}</ion-label>
+          <ion-menu-toggle auto-hide="false" >
+            <ion-item button routerLink="folder">
+              <ion-icon slot="start" name="Home"></ion-icon>
+              <ion-label>Home</ion-label>
             </ion-item>
+            <div *ngFor="let getItems of items">
+
+              <ion-item button [routerLink]="['folder/',getItems.id]"  >
+                <ion-icon slot="start" [ios]="getItems.icono" [md]="getItems.icono"></ion-icon>
+                <ion-label>{{ getItems.nombreItem }}</ion-label>
+              </ion-item>
+            </div>
           </ion-menu-toggle>
         </ion-list>
         <!--<ion-item routerDirection="root" [routerLink]="['folder/',getItems.id]"  lines="none" detail="false" routerLinkActive="selected">-->
