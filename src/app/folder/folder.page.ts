@@ -8,6 +8,7 @@ import { BasedatosService } from '../services/basedatos.service';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
+  
   option={
     slidesPerView:3,
     //loop:true, infinito
@@ -69,5 +70,8 @@ export class FolderPage implements OnInit {
       this.listaTurismo=getnegocios;
     });
   }
+ 
+  
+  
 
 }

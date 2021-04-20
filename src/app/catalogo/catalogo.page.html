@@ -8,19 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-list  *ngFor="let productos of catalogo ">
-    <ion-item>
-      <ion-thumbnail slot="start" >
-        <ion-img [src]="[productos.imagenProducto]"></ion-img>
-      </ion-thumbnail>
-      <div>
-        <strong>{{productos.nombreProducto}}</strong>
-        <br>
-        <span>{{productos.descripcion}} </span>
-        <br>
-        <span>$ {{productos.valor}}</span>
-      </div>
+  <div class="content">
 
-    </ion-item>
-  </ion-list>
+    <ion-list  *ngFor="let productos of catalogo ">
+      <ion-item>
+        <ion-thumbnail slot="start" >
+          <ion-img [src]="[productos.imagenProducto]"></ion-img>
+        </ion-thumbnail>
+        <div>
+          <strong>{{productos.nombreProducto}}</strong>
+          <br>
+          <span>{{productos.descripcion}} </span>
+          <br>
+          <span>$ {{productos.valor}}</span>
+        </div>
+        
+      </ion-item>
+    </ion-list>
+  </div>
+  <app-footer></app-footer>
 </ion-content>

@@ -5,3 +5,8 @@ ion-toolbar {
 span {
   color: #656565;
 }
+.content {
+  overflow: scroll;
+  display: block;
+  height: 72vh;
+}

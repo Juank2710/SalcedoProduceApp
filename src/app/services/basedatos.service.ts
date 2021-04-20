@@ -17,6 +17,9 @@ export class BasedatosService {
   private negocio: Observable<any>;
   private catalogo: Observable<any>;
   private slider: Observable<any>;
+  private sliderPublicitario: Observable<any>;
+  private enlaces:Observable<any>;
+  private popUp:Observable<any>;
   constructor(private db:AngularFirestore) { 
 
     this.Collections = this.db.collection('items');
@@ -127,4 +130,48 @@ export class BasedatosService {
     return this.slider
   }
 
+  getSliderPublicidad(){
+    this.Collections = this.db.collection('sliderPublicidad');
+
+    this.sliderPublicitario = this.Collections.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        });
+      })
+    );
+    return this.sliderPublicitario;
+  }
+
+  getEnlaces(){
+    this.Collections = this.db.collection('enlaces');
+
+    this.enlaces = this.Collections.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        });
+      })
+    );
+    return this.enlaces;
+  
+  }
+  getPopUp(){
+    this.Collections = this.db.collection('imagenPublicidad');
+
+    this.popUp = this.Collections.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        });
+      })
+    );
+    return this.popUp;
+  }
 }

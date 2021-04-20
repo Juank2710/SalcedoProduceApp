@@ -1,0 +1,16 @@
+#pie {
+  display: block;
+  #slider {
+    position: absolute;
+    bottom: 0;
+    height: 20vh;
+    width: 100%;
+    object-fit: fill;
+
+    img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

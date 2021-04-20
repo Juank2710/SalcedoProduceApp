@@ -2,3 +2,8 @@ ion-toolbar {
   --background: #1c2b59;
   --ion-text-color: #ffffff;
 }
+.content {
+  overflow: scroll;
+  display: block;
+  height: 72vh;
+}

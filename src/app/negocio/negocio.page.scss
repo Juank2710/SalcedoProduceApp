@@ -31,3 +31,8 @@ ion-slide ion-card {
   padding: 0;
   margin: 1%;
 }
+.content {
+  overflow: scroll;
+  display: block;
+  height: 72vh;
+}
