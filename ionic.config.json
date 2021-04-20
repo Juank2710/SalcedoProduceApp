@@ -1,7 +1,8 @@
 {
   "name": "salcedoProduce",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

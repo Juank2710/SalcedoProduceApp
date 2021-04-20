@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { BasedatosService } from '../services/basedatos.service';
 @Component({
   selector: 'app-negocio',
@@ -100,7 +101,7 @@ export class NegocioPage implements OnInit {
   idItem;
   idCategoria;
   idNegocio;
-  constructor(private route:ActivatedRoute,private baseDatosService:BasedatosService,private router:Router) { 
+  constructor(private route:ActivatedRoute,private baseDatosService:BasedatosService,private router:Router,private browser:InAppBrowser) { 
     this.idItem=this.route.snapshot.paramMap.get('itemId');
     this.idCategoria=this.route.snapshot.paramMap.get('idCatalogo');
     this.idNegocio=this.route.snapshot.paramMap.get('idNegocio');
@@ -132,5 +133,9 @@ export class NegocioPage implements OnInit {
   }
   onClick(){
     this.router.navigate(['/catalogo',this.idItem,this.idCategoria,this.idNegocio]);
+  }
+
+  openUrl(url:string,target:string){
+    this.browser.create(url,target);
   }
 }

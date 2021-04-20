@@ -3,87 +3,90 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title >{{ negocios.nombreNegocio }}</ion-title>
+    <ion-title>{{ negocios.nombreNegocio }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-    <div class="slider">
-      <ion-slides  pager="true"  [options]="slideOpts" >
-      
-        <ion-slide *ngFor="let getSlider of slider">
-          <ion-img [src]="[getSlider.imagenSlider]"></ion-img>
-        </ion-slide>
-      </ion-slides>
-    </div>
 
-    <div class="informacion">
-      <div>
-        <ion-icon name="storefront-outline"></ion-icon>
-        <label >{{negocios.descripcion}}</label>
-      </div>
-      <div>
-        <ion-icon name="location-outline"></ion-icon>
-        <label for=""> {{negocios.ubicacion}}</label>
-      </div>
-      <div>
-        <ion-icon name="time-outline"></ion-icon>
-        <label for=""> De {{negocios.horaInicio}} Hasta {{negocios.horaCierre}}</label>
-      </div>
-      <div>
-        <ion-icon name="logo-facebook"></ion-icon>
-        <label for=""> {{negocios.facebook}}</label>
-      </div>
-    </div>
+  <div class="slider">
+    <ion-slides pager="true" [options]="slideOpts">
 
+      <ion-slide *ngFor="let getSlider of slider">
+        <ion-img [src]="[getSlider.imagenSlider]"></ion-img>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="informacion">
     <div>
-      <ion-card class="content_card">
-        <ion-card-header >
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="9">
-                <ion-card-title>Catalogo</ion-card-title>
-              </ion-col>
-              <ion-col size="3" >
-                
-                <span button (click)="onClick()">Ver todo </span>
+      <ion-icon name="storefront-outline"></ion-icon>
+      <label>{{negocios.descripcion}}</label>
+    </div>
+    <div (click)="openUrl(negocios.urlUbicacion,'_self')">
+      <ion-icon name="location-outline"></ion-icon>
+      <label for=""> {{negocios.ubicacion}}</label>
+    </div>
+    <div>
+      <ion-icon name="time-outline"></ion-icon>
+      <label for=""> De {{negocios.horaInicio}} Hasta {{negocios.horaCierre}}</label>
+    </div>
+    <div (click)="openUrl('tel:'+negocios.telefono,'_system')">
+      <ion-icon name="call-outline"></ion-icon>
+      <label for=""> {{negocios.telefono}}</label>
+    </div>
+    <div (click)="openUrl(negocios.facebook,'_self')">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <label for=""> {{negocios.facebook}}</label>
+    </div>
+  </div>
 
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-          
-        </ion-card-header>
+  <div>
+    <ion-card class="content_card">
+      <ion-card-header>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="9">
+              <ion-card-title>Catalogo</ion-card-title>
+            </ion-col>
+            <ion-col size="3">
 
-        <ion-card-content>
+              <span button (click)="onClick()">Ver todo </span>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-header>
+
+      <ion-card-content>
 
 
-          <ion-slides  [options]="option" >
+        <ion-slides [options]="option">
 
 
-          <ion-slide *ngFor="let productos of catalogo" >
+          <ion-slide *ngFor="let productos of catalogo">
             <ion-card (click)="onClick()">
-              
+
               <ion-img [src]="[productos.imagenProducto]"></ion-img>
             </ion-card>
           </ion-slide>
-          
-       
+
+
 
         </ion-slides>
 
-          <!--
-            
-            <ion-slide >
-              <ion-card>
-                
-              </ion-card>
-            </ion-slide>
 
+      </ion-card-content>
+    </ion-card>
+  </div>
 
-          -->
-        </ion-card-content>
-      </ion-card>
-    </div>
+  <div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="openUrl('https://api.whatsapp.com/send?phone=+593'+negocios.telefono,'_system')">
+      <ion-fab-button color="success" >
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
 
 </ion-content>
