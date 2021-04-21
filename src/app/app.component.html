@@ -1,4 +1,19 @@
 <ion-app>
+
+
+
+
+  <div class="modal">
+    <div class="contenido" *ngFor="let item of popUp">
+      
+        
+        <img src="{{item.imagenSlider}}" alt="imagen">
+     
+    </div>
+  </div>
+
+
+
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>

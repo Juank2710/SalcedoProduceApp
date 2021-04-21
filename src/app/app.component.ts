@@ -8,6 +8,7 @@ import {  BasedatosService} from "./services/basedatos.service";
 })
 export class AppComponent {
   items:any;
+  popUp:any;
   public subscribe:any;
   constructor( private baseDatosService:BasedatosService,public platform:Platform) {
     this.subscribe=this.platform.backButton.subscribeWithPriority(666666,()=>{
@@ -21,6 +22,7 @@ export class AppComponent {
     });
 
     this.recuperarItems();
+    this.getPopUp();
   }
   
   recuperarItems(){
@@ -28,7 +30,11 @@ export class AppComponent {
       this.items=item;
     })
   }
-  
+  getPopUp(){
+    this.baseDatosService.getPopUp().subscribe((imagen)=>{
+      this.popUp=imagen;
+    })
+  }
    
   
 }
