@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { BasedatosService } from '../services/basedatos.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-folder',
@@ -23,8 +23,17 @@ export class FolderPage implements OnInit {
   listaMadera:any;
   listaGastronomia:any;
   listaTurismo:any;
-
-  constructor(private activatedRoute: ActivatedRoute,private baseDatosService:BasedatosService) { 
+  public subscribe:any;
+  constructor(private baseDatosService:BasedatosService,public platform:Platform) { 
+    this.subscribe=this.platform.backButton.subscribeWithPriority(666666,()=>{
+      if(this.constructor.name=="HomePage")
+      {
+        if(window.confirm("¿Desea salir?"))
+        {platform
+          navigator["app"].exitApp();
+        }
+      }
+    });
     this.getItems();
     
    this.getListaNeegocios()

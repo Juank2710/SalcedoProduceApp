@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 //firebase
-import { firebaseConfig } from '../environments/firebaseConfig';
 import { AngularFireModule } from '@angular/fire';
 
 import {  AngularFirestoreModule} from "@angular/fire/firestore";
